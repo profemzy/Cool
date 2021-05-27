@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  cool:
+    image: ${DOCKER_REGISTRY-}cool
+    build:
+      context: .
+      dockerfile: Cool/Dockerfile
+    ports:
+        - "8080:443"
+        - "8181:80"
+    depends_on:
+        - ms-sql-server
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Pa55w0rd2021"
+      MSSQL_PID: Express
+    ports:
+        - "1433:1433"
+    volumes:
+        - sql_data_volume:/var/opt/mssql
+
+volumes:
+    sql_data_volume:
