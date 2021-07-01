@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: books-api-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: books-api
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: books-api
-          image: profemzy/books-api:v1
+          image: profemzy/books-api:v2
           resources:
             limits:
               memory: "128Mi"
