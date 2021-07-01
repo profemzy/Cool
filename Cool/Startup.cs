@@ -24,7 +24,7 @@ namespace Cool
         public void ConfigureServices(IServiceCollection services)
         {
 
-            const string connection = @"Server=ms-sql-server,1433;Database=bookDb;User=sa;Password=Password2020;";
+            const string connection = @"Server=mssql-service,1433;Database=bookDb;User=sa;Password=Password2020;";
             
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connection));
